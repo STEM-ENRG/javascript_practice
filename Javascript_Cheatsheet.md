@@ -29,6 +29,8 @@ function greet(name) {
 
 In this example, we have defined a function called `greet` that takes a single argument `name`. When the function is called with an argument, it will log a message to the console that greets the person by name.
 
+> NOTE: Sometimes there is no argument for the function. Here is an example of what it would look like: `function greet() {};`
+
 
 ## Call a function/Use a function
 To call a function in JavaScript, you can simply write the name of the function followed by parentheses `()`, and include any arguments that the function requires inside the parentheses. Here is an example of calling the `greet` function with an argument:
@@ -37,6 +39,8 @@ To call a function in JavaScript, you can simply write the name of the function 
 `greet("Alice"); // logs "Hello, Alice!"`
 
 This will call the `greet` function with the argument `"Alice"`, which will log the message `"Hello, Alice!"` to the console.
+
+> NOTE: Here is how you would call a function with no arguments: `greet();`
 
 ### Arrays
 An array is a collection of elements (or values) of the same data type, arranged in a contiguous block of memory and identified by a single name. You can think of an array as a group of boxes or slots that hold values of the same type, where each box is identified by an index or a position number.
