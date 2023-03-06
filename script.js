@@ -42,6 +42,7 @@ form.addEventListener('submit', (event) => {
   /** 
   * 4. Add a todo to the todos array
   * - Use .push() to add the todo to the todos array
+  * - Add a console.log(todos) and refresh in the browser to test that wh
   */
   todos.push(todo);
 
@@ -53,11 +54,13 @@ form.addEventListener('submit', (event) => {
   input.value = '';
 
   /**
-   * 6. Uncomment this code by remove the `//`
+   * 6. Uncomment this code by removing the `//`
+   * - Add these two lines of code after the code in Step 5
+   * 
    * These lines will call the methods. Currently they do not exist, you will create them in Step 7 and Step 8 
    */
-  saveTodos();
-  renderTodos();
+  // saveTodos();
+  // renderTodos();
 });
 
 /**
