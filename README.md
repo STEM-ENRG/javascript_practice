@@ -51,16 +51,15 @@ After opening the page in the browser, you should also open the console in the b
 
 In the browser: right click --> Select Inspect --> Select Console from the panel
 
-Video of inspect browser:
-
-[![Inspect Console](images/console_image.png)](checkpoints_and_inspect_videos/how_to_open_console_in_browser.mov)
+This is what you should see:
+[![Inspect Console open](images/console_image.png)](checkpoints_and_inspect_videos/inspect_console.gif)
 
 
 # Checkpoints
 There are a few checkpoints included while you complete the steps so that you can confirm that you are on the right track. Those checkpoint images are included in this section. 
 
-## Step 4 Checkpoint Image
-[![After Step 4 Checkpoint](images/step_4_checkpoint.png)](checkpoints_and_inspect_videos/results_after_step_4.mov)
+## After Step 4 Checkpoint Image
+[![After Step 4 Checkpoint](images/step_4_checkpoint.png)](checkpoints_and_inspect_videos/After_Step_4_checkpoint.gif)
 
 ## Step 7 Checkpoint Image
 
