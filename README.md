@@ -5,7 +5,7 @@ We are creating a ToDo App that allows a user to add a new item to a list, mark 
 You can either unzip the files or clone the repository on github
 
 ## Unzip files
-Navigate to where you want to add these files on your computer. Then click on the files to unzip them.
+Navigate to where you want to add these files on your computer. Drag and drop the unzipped file. Then double click on the zipped file to unzip.
 
 ## Clone the Repository
 Open VSCode, Then go to Terminal --> New Terminal 
