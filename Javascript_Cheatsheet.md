@@ -8,13 +8,78 @@ JavaScript has six primitive data types:
 3. Boolean: This represents logical values, `true` or `false`.
 4. Undefined: This represents a value that is not yet defined or has no value.
 5. Null: This represents an intentional absence of any object value.
-6. Symbol (new in ECMAScript 6): This data type represents a unique identifier that is not equal to any other identifier.
+6. Symbol: This data type represents a unique identifier that is not equal to any other identifier.
 
 JavaScript also has one non-primitive data type:
 
 7. Object: This represents a collection of key/value pairs, which can be used to store various data types and complex entities.
 
 It's worth noting that JavaScript is a dynamically-typed language, which means that the data type of a variable is determined at runtime based on the type of value that it currently holds. This is in contrast to statically-typed languages where the data type of a variable must be explicitly declared and is fixed at compile-time.
+
+## Variable
+A variable is a named storage location that holds a value. You can think of a variable as a container that holds data, like a box that holds objects.
+
+When you define a variable, you give it a name and a type, and you can optionally assign an initial value to it. 
+
+### **Example**
+`let message = 'Hello World!';`
+
+You define a variable using the `let` keyword
+
+`message` is the name of the variable.
+
+The equals sign `=` is necessary to set a value to the variable.
+
+`'Hello World!'` is the value of the variable. In this example, it is a string but it can be any type. 
+
+## Constant Variable
+A variable that is assigned a value once and cannot be changed throughout the program's execution. In other words, once a constant variable is initialized, its value cannot be modified.
+
+Constant variables are useful for situations where you want to declare a value that should not be changed by mistake. By declaring a variable as a constant, you can prevent accidental modification of its value and make your code more robust and error-resistant.
+
+### **Examples with different data types**
+
+### Example One:
+
+`const defaultNumber = 700;`
+
+Define a constant variable using the `const` keyword.
+
+`defaultNumber` is the name of the variable.
+
+The equals sign `=` is necessary to set a value to the variable.
+
+`700` is the value of the variable. In this example, it is a integer but it can be any type. 
+
+### Example Two:
+
+```
+const defaultObject = {
+    id: 848454,
+    type: '',
+    completed: false,
+};
+
+```
+
+Define a constant variable using the `const` keyword.
+
+`defaultObject` is the name of the constant variable.
+
+The equals sign `=` is necessary to set a value to the variable.
+
+Since this constant variable is an object, we use the curly braces `{}` to denote an object type.
+
+> **NOTE** An object is a collection of key-value pairs, where each key represents a property name and each value represents the value of that property. You can think of an object as a dictionary or a map, where each property name is a key that maps to a value.
+
+The key-values consist of the following: 
+
+- `id` is the key, the `id` is set to a value of `848454`, `848454` is an integer
+- `type` is the key, the `type` is set to a value of `''`, `''` is an empty string
+- `completed` is the key, the `completed` is set to a value of `false`, `false` is an boolean
+
+> **NOTE** the boolean data type represents a logical value that can be either true or false. It is used to represent the truth value of an expression or a condition, where true represents a condition that is true or valid, and false represents a condition that is false or invalid.
+
 
 ## Write a Function/Define a function
 To write a function in JavaScript, you can use the `function` keyword followed by the name of the function, and then include the code that you want the function to execute inside curly braces `{}`. 
@@ -66,7 +131,7 @@ The above sets a empty array to a variable named items.
 
 An example that defines a variable we want to add to an array.
 
-Define a variable and set it equal to value. We are defining a string with a value of `'brush'` in this example.
+Define a variable and set it equal to a value. We are defining a string with a value of `'brush'` in this example.
 
 `let itemToAdd = 'brush';`
 
@@ -97,17 +162,9 @@ numbers.forEach(function(number) {
 
 `numbers` is the array. In this example, it's an array of number 1, 2, 3
 
-
-```
-numbers.forEach(function(number) {
-  console.log(number);
-});
-```
-`numbers` is the array we want to loop through
-
 `function(number){}` is the callback. This represents what we want to happen next to each value of the array. The `number` represents one item in the array. Typically, this value is a singular version of what the array is called. In this example, since we have an array called `numbers` plural, then we use `number` to identify each value of the array. 
 
-Think of this as we are going through each value in the array, `number` is one value in the array. The `console.log(number)` is displaying each value in the array, one at a time. Essentially, we want to grab one item in the array, do something to that item (in this example, we are using `console.log(number)` to display the number) and the do the same thing to the next item in the array until we reach the end of the array.
+Think of this as we are going through each value in the array, `number` is one value in the array. The `console.log(number)` is displaying each value in the array, one at a time. Essentially, we want to grab one item in the array, do something to that item (in this example, we are using `console.log(number)` to display the number) and then do the same thing to the next item in the array until we reach the end of the array.
 
 
 ### .find()
@@ -136,71 +193,6 @@ The `findIndex()` method returns the index of the first element in the array tha
 Once the `findIndex()` method finds the first element that satisfies the testing function, it returns the index of that element in the array. If no element in the array satisfies the testing function, `findIndex()` returns -1.
 
 The returned index is then assigned to the constant variable `todoIndex`, which can be used to update or remove the corresponding todo item from the `todos` array.
-
-## Variable
-A variable is a named storage location that holds a value. You can think of a variable as a container that holds data, like a box that holds objects.
-
-When you define a variable, you give it a name and a type, and you can optionally assign an initial value to it. 
-
-### **Example**
-`let message = 'Hello World!';`
-
-You define a variable using the `let` keyword
-
-message is the name of the variable.
-
-The equals sign is necessary to set a value to the variable.
-
-'Hello World!' is the value of the variable. In this example, it is a string but it can be any type. 
-
-## Constant Variable
-A variable that is assigned a value once and cannot be changed throughout the program's execution. In other words, once a constant variable is initialized, its value cannot be modified.
-
-Constant variables are useful for situations where you want to declare a value that should not be changed by mistake. By declaring a variable as a constant, you can prevent accidental modification of its value and make your code more robust and error-resistant.
-
-### **Examples with different data types**
-
-### Example One:
-
-`const defaultNumber = 700;`
-
-You define a constant variable using the `const` keyword.
-
-defaultNumber is the name of the variable.
-
-The equals sign is necessary to set a value to the variable.
-
-700 is the value of the variable. In this example, it is a integer but it can be any type. 
-
-### Example Two:
-
-```
-const defaultObject = {
-    id: 848454,
-    type: '',
-    completed: false,
-};
-
-```
-
-You define a constant variable using the `const` keyword.
-
-defaultObject is the name of the constant variable.
-
-The equals sign is necessary to set a value to the variable.
-
-Since this constant variable is an object, we use the curly braces `{}` to denote an object type.
-
-> **NOTE** An object is a collection of key-value pairs, where each key represents a property name and each value represents the value of that property. You can think of an object as a dictionary or a map, where each property name is a key that maps to a value.
-
-The key-values consist of the following: 
-
-- `id` is the key, the `id` is set to a value of `848454`, `848454` is an integer
-- `type` is the key, the `type` is set to a value of `''`, `''` is an empty string
-- `completed` is the key, the `completed` is set to a value of `false`, `false` is an boolean
-
-> **NOTE** the boolean data type represents a logical value that can be either true or false. It is used to represent the truth value of an expression or a condition, where true represents a condition that is true or valid, and false represents a condition that is false or invalid.
-
 
 ## Built in Javascript Functions
 
