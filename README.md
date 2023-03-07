@@ -13,7 +13,7 @@ Once the terminal is open, use the link below to clone the repository
 
 `git clone https://github.com/STEM-ENRG/javascript_practice.git`
 
-> Note: If you set up SSH, then use the ssh link: git@github.com:STEM-ENRG/javascript_practice.git
+> Note: If you set up SSH, then use the ssh link: `git@github.com:STEM-ENRG/javascript_practice.git`
 
 # Open the files in VSCode
 If you've unzipped the files, then follow the instructions from unzip. If you cloned then follow the clone instructions
