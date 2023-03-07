@@ -19,7 +19,7 @@ Once the terminal is open, use the link below to clone the repository
 If you've unzipped the files, then follow the instructions from the Unzip section. If you cloned then follow the clone instructions.
 
 ## Unzip
-Open VSCode and Click Open and choose the folder where you placed the unzipped files in
+Open VSCode and Click Open and choose the folder where you placed the unzipped files.
 
 ## Clone
 @todo:
