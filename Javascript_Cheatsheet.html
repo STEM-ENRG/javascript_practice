@@ -503,6 +503,20 @@ numbers.forEach(function(number) {
 <p>Once the <code>findIndex()</code> method finds the first element that satisfies the testing function, it returns the index of that element in the array. If no element in the array satisfies the testing function, <code>findIndex()</code> returns -1.</p>
 <p>The returned index is then assigned to the constant variable <code>todoIndex</code>, which can be used to update or remove the corresponding todo item from the <code>todos</code> array.</p>
 <h2 id="built-in-javascript-functions">Built in Javascript Functions</h2>
+<h3 id="queryselector">queryselector()</h3>
+<p><code>querySelector()</code> is a method in JavaScript that allows you to select and manipulate an HTML element by its CSS selector. It returns the first element that matches the specified selector.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p>For example, if you want to select an element with a class of <code>container</code>, you can use the following code:</p>
+<pre class="hljs"><code><div>const container = document.querySelector('.container');
+</div></code></pre>
+<p>This code will select the first element with a class of <code>container</code> in the HTML document and assign it to the <code>container</code> variable.</p>
+<h3 id="getelementbyid">getElementById()</h3>
+<p><code>getElementById()</code> is a method in JavaScript that allows you to select and manipulate an HTML element by its <code>id</code> attribute. It returns the element that has the specified <code>id</code>.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p>For example, if you want to select an element with an <code>id</code> of <code>my-element</code>, you can use the following code:</p>
+<pre class="hljs"><code><div>const element = document.getElementById('my-element');
+</div></code></pre>
+<p>This code will select the element with an <code>id</code> of <code>my-element</code> in the HTML document and assign it to the <code>element</code> variable.</p>
 <h3 id="createelement">createElement()</h3>
 <p><code>document.createElement()</code> is a JavaScript method that creates a new HTML element, which can be later inserted into the DOM tree.</p>
 <h4 id="example"><strong>Example</strong></h4>
@@ -566,6 +580,19 @@ console.log(fruits); // [&quot;apple&quot;, &quot;banana&quot;, &quot;kiwi&quot;
 div.innerHTML = &quot;&lt;p&gt;This is some new content&lt;/p&gt;&quot;;
 </div></code></pre>
 <p>In this example, we first used document.getElementById() to select an existing div element with the ID &quot;myDiv&quot;. We then used the innerHTML property to set the content of the element to a new paragraph element containing the text &quot;This is some new content&quot;.</p>
+<h3 id="inputvalue">input.value</h3>
+<p><code>input.value</code> is a property in JavaScript that allows you to get or set the current value of an HTML input element.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p>For example, if you have an HTML input element with an <code>id</code> of <code>my-input</code>, you can use the following code to get the current value of the input:</p>
+<pre class="hljs"><code><div>const input = document.getElementById('my-input');
+const inputValue = input.value;
+</div></code></pre>
+<p>This code will get the current value of the <code>my-input</code> element and assign it to the <code>inputValue</code> variable.</p>
+<p>You can also use this property to set the value of the input. For example, if you want to set the value of the <code>my-input</code> element to <code>Hello, world!</code>, you can use the following code:</p>
+<pre class="hljs"><code><div>const input = document.getElementById('my-input');
+input.value = 'Hello, world!';
+</div></code></pre>
+<p>This code will set the value of the <code>my-input</code> element to <code>Hello, world!</code>.</p>
 <h2 id="conditionals">Conditionals</h2>
 <h3 id="if-else-else-if-conditionals">If, Else, Else If Conditionals</h3>
 <p><code>if</code> is a conditional statement that allows you to execute code based on a specified condition. The syntax for an if statement is as follows:</p>

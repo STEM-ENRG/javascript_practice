@@ -16,7 +16,7 @@ Once the terminal is open, use the link below to clone the repository
 > Note: If you set up SSH, then use the ssh link: `git@github.com:STEM-ENRG/javascript_practice.git`
 
 # Open the files in VSCode
-If you've unzipped the files, then follow the instructions from unzip. If you cloned then follow the clone instructions
+If you've unzipped the files, then follow the instructions from the Unzip section. If you cloned then follow the clone instructions.
 
 ## Unzip
 Open VSCode and Click Open and choose the folder where you placed the unzipped files in
@@ -38,15 +38,16 @@ Mac: `open index.html`
 
 Windows: `start index.html`
 
-> **Note** You only have to do this once to launch in the browser. Afterwards, you only need to refresh the page in order to see the new changes.
+> **Note** You only have to do this once to launch in the browser. Afterwards, you only need to refresh the page in order to see the new changes. If close the browser, then you can reopen by using either of the above commands
 
 In VSCode: Click on the `script.js` file. You can also open the other files but the javascript file contains the instructions you need to complete this. 
 
-You will notice there are Step by Step comments in the `script.js` file that will help you complete the application. If you get stuck, I've included a Javascript_Cheatsheet.md file and Javascript_Cheatsheet.pdf file to help you with the definitions of the things used in the script.js code
+You will notice there are Step by Step comments in the `script.js` file that will help you complete the application. If you get stuck, I've included a Javascript_Cheatsheet.md file, Javascript_Cheatsheet.pdf and Javascript_Cheatsheet.html file to help you with the definitions of the things used in the script.js code. NOTE: Each Javscript_Cheatsheet file is the same, I've provided different file types.
 
 If you have further questions, let me know.
 
 ---
+# After Start Instructions
 After opening the page in the browser, you should also open the console in the browser. 
 
 In the browser: right click --> Select Inspect --> Select Console from the panel

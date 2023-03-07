@@ -196,6 +196,31 @@ The returned index is then assigned to the constant variable `todoIndex`, which 
 
 ## Built in Javascript Functions
 
+### queryselector()
+`querySelector()` is a method in JavaScript that allows you to select and manipulate an HTML element by its CSS selector. It returns the first element that matches the specified selector.
+
+#### **Example**
+For example, if you want to select an element with a class of `container`, you can use the following code:
+
+```
+const container = document.querySelector('.container');
+```
+This code will select the first element with a class of `container` in the HTML document and assign it to the `container` variable.
+
+
+### getElementById()
+`getElementById()` is a method in JavaScript that allows you to select and manipulate an HTML element by its `id` attribute. It returns the element that has the specified `id`.
+
+#### **Example**
+For example, if you want to select an element with an `id` of `my-element`, you can use the following code:
+
+```
+const element = document.getElementById('my-element');
+```
+
+This code will select the element with an `id` of `my-element` in the HTML document and assign it to the `element` variable.
+
+
 ### createElement()
 `document.createElement()` is a JavaScript method that creates a new HTML element, which can be later inserted into the DOM tree.
 
@@ -290,6 +315,28 @@ div.innerHTML = "<p>This is some new content</p>";
 ```
 
 In this example, we first used document.getElementById() to select an existing div element with the ID "myDiv". We then used the innerHTML property to set the content of the element to a new paragraph element containing the text "This is some new content".
+
+
+### input.value
+`input.value` is a property in JavaScript that allows you to get or set the current value of an HTML input element.
+
+#### **Example**
+For example, if you have an HTML input element with an `id` of `my-input`, you can use the following code to get the current value of the input:
+
+```
+const input = document.getElementById('my-input');
+const inputValue = input.value;
+```
+
+This code will get the current value of the `my-input` element and assign it to the `inputValue` variable.
+
+You can also use this property to set the value of the input. For example, if you want to set the value of the `my-input` element to `Hello, world!`, you can use the following code:
+
+```
+const input = document.getElementById('my-input');
+input.value = 'Hello, world!';
+```
+This code will set the value of the `my-input` element to `Hello, world!`.
 
 
 ## Conditionals

@@ -1,8 +1,8 @@
 /*
 1. Create 3 constant variables
-- Create a constant variable named form and uses querySelector() to retrieve the form element
-- Create a constant variable named input and uses getElementById() to retrieve the new-item-input element
-- Create a constant list named list and uses getElementById() to retrieve the todo-list element
+- Create a constant variable named form and set it equal to a querySelector() that will retrieve the form element
+- Create a constant variable named input and set it equal to a getElementById() that will retrieve the new-item-input element
+- Create a constant variable named list and set it equal to a getElementById() that will retrieve the todo-list element
 */
 
 /*
@@ -10,24 +10,25 @@
 - Create a variable called todos. Set this variable equal to an empty array.
 */
 
-// Add new to-do item when form is submitted/Item is added to list
+// This event listener will: Add new to-do item when form is submitted/Item is added to list
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
   /*
-  * 3. Create a constant object and assign key value pairs to object
+  * 3. Create a constant object and assign key/value pairs to the object
   - Create a constant variable named todo
   - This variable should be equal to an object. An object is declared using curly braces {}
-  - Inside the curly braces add the following attributes and values
-    - id: Date.now(),
-    - text: input.value,
-    - completed: false
+  - Inside the curly braces add the following attributes and values - Note: Each key end in a colon and each value ends with a comma
+     id: Date.now(),
+     text: input.value,
+     completed: false
   */
 
   /** 
   * 4. Add a todo to the todos array
   * - Use .push() to add the todo to the todos array
-  * - Add a console.log(todos) and refresh in the browser to test that wh
+  * - Add a console.log(todos) and refresh in the browser to test that an item displays as an object with the keys defined in Step 3. 
+  * Note: The id will be a different value and the text will be whatever you typed in the input
   */
 
   /**
@@ -56,29 +57,29 @@ form.addEventListener('submit', (event) => {
  *  NOTE: This line of code uses localStorage which is a way to save information to your browser so that when you refresh the page, the information is still there. The setItem() converts the todos array to a JSON object type which is similar to an object in Javascript.
  * 
  * When you complete this step, you should have a function named saveTodos() with one line of code inside of it.
- * - Add a console.log on the next point to confirm checkpoint: console.log(todos)
+ * - Add a console.log on the next line to confirm this checkpoint: console.log(todos)
  */
 
 /**
  * 8. Create an empty function
- * - Create a function named renderTodos, let it blank/empty for now. 
+ * - Create a function named renderTodos, leave it blank/empty for now. 
  * In this step, we are defining the function that we will add more to in step 9.
  */
 
 /**
- * 9. Set innerHTML of list to an empty string
- * - Inside the curly braces of the renderTodos function you created in step 8, set the innerHTML of list equal to an empty string
+ * 9. Set innerHTML of list created in Step 1 to an empty string
+ * - Inside the curly braces of the renderTodos function you created in step 8, set the innerHTML of the list variable equal to an empty string
  * 
- * NOTE: the variable list was defined in Step 1. 
- * During this step, we are setting that innerHTML of list to an empty string. We do this because we want to start with an empty list each time.
- * within the next couple steps we are going to add an li tag for each of the items in the list. To ensure the innerHTML of the list is always cleared, we have to set it equal to an empty string
+ * NOTE: the variable named list was defined in Step 1. 
+ * During this step, we are setting the innerHTML of list to an empty string. We do this because we want to start with an empty list each time.
+ * within the next couple steps we are going to add an li tag for each of the items in the list. To ensure the innerHTML of the list is always cleared, we have to set it equal to an empty string.
  */
 
-// NOTE: Steps 10-13 are all related. During these steps we will add a li tag for each todo that is in the array, we will set the innerHTML and append the li tag to the HTML
+// NOTE: During Steps 10-13 we will add a li tag for each todo that is in the array, we will set the innerHTML and append the li tag to the HTML
 
 /**
- * 10. Create a forEach Javscript function to loop through each todo
- * - Use the .forEach() Javascript function to define 
+ * 10. Create a forEach array method to iterate through each todo
+ * - Use the .forEach() array method to loop through each todo  
  * HINT: This Javascript function will need to have the singular version of todo defined
  * 
  * After Step 10 Checkpoint: Add console.log(todo) inside of the forEach function definition. Once you refresh the index.html page, open the console (right click --> select Inspect), add a new item on to form and click Add, you should see output display to the console
@@ -87,10 +88,10 @@ form.addEventListener('submit', (event) => {
 
 
 /**
- * 11. Add a constant variable li and set it
+ * 11. Add a constant variable li and create a new li (list item) HTML element 
  * You will do 2 things this step:
  * - Define a constant variable called li
- * - Use document.createElement() to create a li element
+ * - Use document.createElement() to create a li HTML element
  */
 
 
@@ -111,38 +112,38 @@ form.addEventListener('submit', (event) => {
  * 13. Append the li (list item element) to the list
  * - Use appendChild() to add the li to the list
  * 
- * After Step 13 Check: Add the end of this step, you should be able to add an item to the list and see it displayed on the page
+ * After Step 13 Checkpoint: Add the end of this step, you should be able to add an item to the list and see it displayed on the page
  */
 
 
 /**
  * 14. Currently, nothing happens if you check the box next to the item or if you click the Delete button next to a todo.
- * Let's change that in Step 15.
+ * Let's change that starting at Step 15.
  */
 
 // Starting at this Step, we will work on: Mark to-do item as completed or remove it from the list
 /**
  * 15. Add a click list event listener 
- * - Using addEventListener(), add an event listener for list click event
+ * - Using addEventListener(), add an event listener for when an item from the list is clicked 
  */
 
 
-// Next, We will create a if else if conditional to check if the input next to the todo was clicked or the delete button for the todo was clicked
+// Next, We will create a if else if conditional to check if the input next to the todo was clicked or if the delete button for the todo was clicked
 /**
- * 16. Create an if conditional that checks if the event target is equal to INPUT
+ * 16. Create a if conditional that checks if the event target is equal to INPUT
  * - Use if statement to check if event.target.tagName is equal to 'INPUT'
  */
 
 
 /**
  * 17. Add this line of code inside the curly braces of the if conditional you created in Step 16
- * const todo = todos.find(todo => todo.id === parseInt(event.target.id));
+ *  const todo = todos.find(todo => todo.id === parseInt(event.target.id));
  * 
  * This line of code is used to find a specific object in an array of objects based on a certain condition, such as the `id` property of the object matching the `id` property of an HTML element that triggered an event.
  * There is a more in depth description in the Javascript_Cheatsheet.md file
  * 
- * Completion Check: Add console.log(todo);
- * After this check you add 3 items to the list and select the second item. In the console, the information for the second one will be shown
+ * Add a console.log after this line of code: console.log(todo);
+ * After step 17 completion check: add 3 items to the list and select the second item. In the console, the information for the second item will be shown
  */
 
 
@@ -155,25 +156,25 @@ form.addEventListener('submit', (event) => {
 
 
 /**
- * 19. After we have marked a todo as completed, we have to now save and render the todos.
- * To do this, we must call the saveTodos() and renderTodos() functions
- * - call the saveTodos() function
- * - call the renderTodos() function
+ * 19. After we have marked a todo as completed, we have to save and render the todos.
+ * To do this, we must call the saveTodos() and renderTodos() functions:
+ *  - call the saveTodos() function
+ *  - call the renderTodos() function
  * 
  * This should be 2 lines of code: First line calls the saveTodos function, Second line calls the renderTodos function
- * Completion Check: Refresh the browser, add a couple todos, check the box beside at least one, the todo should be crossed out
+ * Completion Check: Refresh the browser, add a couple todos, check the box beside at least one todo, the todo should be crossed out
  */
 
 
 /**
- * 20. Create else if statement to add another condition for 'BUTTON'
+ * 20. Create else if statement to add another condition to check if the delete button was clicked
  * - Use else if statement to check if event.target.tagName is equal to 'BUTTON'
  */ 
 
 /**
  * 21. Find the index of the item in the array that matches to id of the todo
  * Add this code inside the curly braces of the else if statement you created in Step 20:
- * const todoIndex = todos.findIndex(todo => todo.id === parseInt(event.target.id));
+ *    const todoIndex = todos.findIndex(todo => todo.id === parseInt(event.target.id));
  * 
  * Further explanation of this line of code is located in the Javascript_Cheatsheet.md file
  */
@@ -181,7 +182,7 @@ form.addEventListener('submit', (event) => {
 
 /**
  * 22. We are currently in the line of code that determines that the delete button was clicked for the current todo.
- * When the delete button is clicked, we want to remove this todo from the list. To do this, you use the built in function splice()
+ * When the delete button is clicked, we want to remove this todo from the list. To do this, use the built in function splice()
  * - Use splice to remove the first todo item in the array that has the todoIndex we found in Step. 21
  */
 
@@ -198,7 +199,7 @@ form.addEventListener('submit', (event) => {
 
 /**
  * 24. Everything should be working now!
- * Test out the application in the browser - Add some to dos, mark some completed and delete a couple
+ * Test out the application in the browser - Add some todos, mark some completed and delete a couple
  */
 
 
@@ -206,7 +207,8 @@ form.addEventListener('submit', (event) => {
  * 25. Uncomment out this code.
  * This allows us to keep our list of todos without having to rewrite them each time by using the localStorage in our browser
  * 
- * Refresh the page: Notice how the todos are still there 
+ * Refresh the page: Notice how the todos are still there.
+ * NOTE: You may have to add some todos and then refresh to see this working.
  */
 // Load saved todos from local storage
 // if (localStorage.getItem('todos')) {
