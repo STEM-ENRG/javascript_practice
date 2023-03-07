@@ -22,9 +22,6 @@ If you've unzipped the files, then follow the instructions from the Unzip sectio
 Open VSCode and Click Open and choose the folder where you placed the unzipped files.
 
 ## Clone
-@todo:
-I think you may have to open again in VSCode? Test this out
-
 Change to the directory where the files are: `cd javascript_practice`
 
 Make sure you have 7 files in your directory: `ls`
@@ -33,6 +30,8 @@ There should be 7 files listed after running this command
 # Start
 
 Open the index.html file in the browser.
+
+In VSCode: Go to Terminal --> New Terminal 
 
 In the terminal, type this command: 
 
