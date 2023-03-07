@@ -32,7 +32,9 @@ There should be 7 files listed after running this command
 
 # Start
 
-Open the index.html file in the browser: In the terminal, type this command: 
+Open the index.html file in the browser.
+
+In the terminal, type this command: 
 
 Mac: `open index.html` 
 
