@@ -14,11 +14,7 @@ const list = document.getElementById('todo-list');
 */
 let todos = [];
 
-// Load saved todos from local storage
-// if (localStorage.getItem('todos')) {
-//   todos = JSON.parse(localStorage.getItem('todos'));
-//   renderTodos();
-// }
+
 
 // Add new to-do item when form is submitted/Item is added to list
 form.addEventListener('submit', (event) => {
@@ -59,8 +55,8 @@ form.addEventListener('submit', (event) => {
    * 
    * These lines will call the methods. Currently they do not exist, you will create them in Step 7 and Step 8 
    */
-  // saveTodos();
-  // renderTodos();
+  saveTodos();
+  renderTodos();
 });
 
 /**
@@ -73,9 +69,11 @@ form.addEventListener('submit', (event) => {
  *  NOTE: This line of code uses localStorage which is a way to save information to your browser so that when you refresh the page, the information is still there. The setItem() converts the todos array to a JSON object type which is similar to an object in Javascript.
  * 
  * When you complete this step, you should have a function named saveTodos() with one line of code inside of it.
+ * - Add a console.log on the next point to confirm checkpoint: console.log(todos)
  */
   function saveTodos() {
     localStorage.setItem('todos', JSON.stringify(todos));
+    console.log(todos);
   }
 
 // Render the list of to-do items
@@ -93,7 +91,7 @@ function renderTodos() {
 
       list.appendChild(li);
     });
-  }
+}
 
 /**
  * 8. Create an empty function
@@ -116,13 +114,14 @@ function renderTodos() {
  * 10. Create a forEach Javscript function to loop through each todo
  * - Use the .forEach() Javascript function to define 
  * HINT: This Javascript function will need to have the singular version of todo defined
- * Definition of completion: Add console.log(number) inside of the forEach function definition. Once you refresh the index.html page, open the console (right click --> select Inspect), add a new item on to form and click Add, you should see output display to the console
- * @todo add a screenshot for this step, possibly to the READme
+ * 
+ * After Step 10 Checkpoint: Add console.log(todo) inside of the forEach function definition. Once you refresh the index.html page, open the console (right click --> select Inspect), add a new item on to form and click Add, you should see output display to the console
+ * 
  */
 
 /**
  * 11. Add a constant variable li and set it
- * You will 2 things this step:
+ * You will do 2 things this step:
  * - Define a constant variable called li
  * - Use document.createElement() to create a li element
  */
@@ -142,7 +141,8 @@ function renderTodos() {
 /**
  * 13. Append the li (list item element) to the list
  * - Use appendChild() to add the li to the list
- * Completion Check: Add the end of this step, you should be able to add an item to the list and see it displayed on the page
+ * 
+ * After Step 13 Check: Add the end of this step, you should be able to add an item to the list and see it displayed on the page
  */
 
 /**
@@ -150,8 +150,7 @@ function renderTodos() {
  * Let's change that in Step 15.
  */
 
-
-// Mark to-do item as completed or remove it from the list
+// Starting at this Step, we will work on: Mark to-do item as completed or remove it from the list
 /**
  * 15. Add a click list event listener 
  * - Using addEventListener(), add an event listener for list click event
@@ -169,6 +168,9 @@ function renderTodos() {
  * 
  * This line of code is used to find a specific object in an array of objects based on a certain condition, such as the `id` property of the object matching the `id` property of an HTML element that triggered an event.
  * There is a more in depth description in the Javascript_Cheatsheet.md file
+ * 
+ * Completion Check: Add console.log(todo);
+ * After this check you add 3 items to the list and select the second item. In the console, the information for the second one will be shown
  */
 
 /**
@@ -184,7 +186,8 @@ function renderTodos() {
  * - call the saveTodos() function
  * - call the renderTodos() function
  * 
- * Completion Check: 2 lines of code: First line calls the saveTodos function, Second line calls the renderTodos function
+ * This should be 2 lines of code: First line calls the saveTodos function, Second line calls the renderTodos function
+ * Completion Check: Refresh the browser, add a couple todos, check the box beside at least one, the todo should be crossed out
  */
 
 /**
@@ -212,7 +215,7 @@ function renderTodos() {
  * - call the saveTodos() function
  * - call the renderTodos() function
  * 
- * Completion Check: 2 lines of code: First line calls the saveTodos function, Second line calls the renderTodos function
+ * 2 lines of code: First line calls the saveTodos function, Second line calls the renderTodos function
  */
 
 /**
@@ -227,7 +230,8 @@ list.addEventListener('click', (event) => {
 
     saveTodos();
     renderTodos();
-  } else if (event.target.tagName === 'BUTTON') {
+  }
+  else if (event.target.tagName === 'BUTTON') {
     const todoIndex = todos.findIndex(todo => todo.id === parseInt(event.target.id));
     todos.splice(todoIndex, 1);
 
@@ -236,18 +240,14 @@ list.addEventListener('click', (event) => {
   }
 });
 
-
-
-
-// @todo figure out where this code should live or if it can be removed
-// Save the list of to-do items to local storage
-  // function saveTodos() {
-  //   localStorage.setItem('todos', JSON.stringify(todos));
-  // }
-
 /**
- * 6. We need to define a function to put this line of code inside.
- * - Define a function 
- * - Add this line of code inside of the function
- *  - localStorage.setItem('todos', JSON.stringify(todos));
+ * 25. Uncomment out this code.
+ * This allows us to keep our list of todos without having to rewrite them each time by using the localStorage in our browser
+ * 
+ * Refresh the page: Notice how the todos are still there 
  */
+// Load saved todos from local storage
+// if (localStorage.getItem('todos')) {
+//   todos = JSON.parse(localStorage.getItem('todos'));
+//   renderTodos();
+// }
