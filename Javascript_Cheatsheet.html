@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Javascript_Cheatsheet.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="javascript-cheatsheet---basics">Javascript Cheatsheet - Basics</h1>
+<h2 id="data-types">Data Types</h2>
+<p>JavaScript has six primitive data types:</p>
+<ol>
+<li>Number: This represents numeric values, such as <code>3</code>, <code>3.14</code>, or <code>NaN</code> (Not a Number).</li>
+<li>String: This represents textual data, enclosed in single or double quotes, such as <code>&quot;hello&quot;</code>, <code>'world'</code>, or <code>&quot;123&quot;</code>.</li>
+<li>Boolean: This represents logical values, <code>true</code> or <code>false</code>.</li>
+<li>Undefined: This represents a value that is not yet defined or has no value.</li>
+<li>Null: This represents an intentional absence of any object value.</li>
+<li>Symbol: This data type represents a unique identifier that is not equal to any other identifier.</li>
+</ol>
+<p>JavaScript also has one non-primitive data type:</p>
+<ol start="7">
+<li>Object: This represents a collection of key/value pairs, which can be used to store various data types and complex entities.</li>
+</ol>
+<p>It's worth noting that JavaScript is a dynamically-typed language, which means that the data type of a variable is determined at runtime based on the type of value that it currently holds. This is in contrast to statically-typed languages where the data type of a variable must be explicitly declared and is fixed at compile-time.</p>
+<h2 id="variable">Variable</h2>
+<p>A variable is a named storage location that holds a value. You can think of a variable as a container that holds data, like a box that holds objects.</p>
+<p>When you define a variable, you give it a name and a type, and you can optionally assign an initial value to it.</p>
+<h3 id="example"><strong>Example</strong></h3>
+<p><code>let message = 'Hello World!';</code></p>
+<p>You define a variable using the <code>let</code> keyword</p>
+<p><code>message</code> is the name of the variable.</p>
+<p>The equals sign <code>=</code> is necessary to set a value to the variable.</p>
+<p><code>'Hello World!'</code> is the value of the variable. In this example, it is a string but it can be any type.</p>
+<h2 id="constant-variable">Constant Variable</h2>
+<p>A variable that is assigned a value once and cannot be changed throughout the program's execution. In other words, once a constant variable is initialized, its value cannot be modified.</p>
+<p>Constant variables are useful for situations where you want to declare a value that should not be changed by mistake. By declaring a variable as a constant, you can prevent accidental modification of its value and make your code more robust and error-resistant.</p>
+<h3 id="examples-with-different-data-types"><strong>Examples with different data types</strong></h3>
+<h3 id="example-one">Example One:</h3>
+<p><code>const defaultNumber = 700;</code></p>
+<p>Define a constant variable using the <code>const</code> keyword.</p>
+<p><code>defaultNumber</code> is the name of the variable.</p>
+<p>The equals sign <code>=</code> is necessary to set a value to the variable.</p>
+<p><code>700</code> is the value of the variable. In this example, it is a integer but it can be any type.</p>
+<h3 id="example-two">Example Two:</h3>
+<pre class="hljs"><code><div>const defaultObject = {
+    id: 848454,
+    type: '',
+    completed: false,
+};
+
+</div></code></pre>
+<p>Define a constant variable using the <code>const</code> keyword.</p>
+<p><code>defaultObject</code> is the name of the constant variable.</p>
+<p>The equals sign <code>=</code> is necessary to set a value to the variable.</p>
+<p>Since this constant variable is an object, we use the curly braces <code>{}</code> to denote an object type.</p>
+<blockquote>
+<p><strong>NOTE</strong> An object is a collection of key-value pairs, where each key represents a property name and each value represents the value of that property. You can think of an object as a dictionary or a map, where each property name is a key that maps to a value.</p>
+</blockquote>
+<p>The key-values consist of the following:</p>
+<ul>
+<li><code>id</code> is the key, the <code>id</code> is set to a value of <code>848454</code>, <code>848454</code> is an integer</li>
+<li><code>type</code> is the key, the <code>type</code> is set to a value of <code>''</code>, <code>''</code> is an empty string</li>
+<li><code>completed</code> is the key, the <code>completed</code> is set to a value of <code>false</code>, <code>false</code> is an boolean</li>
+</ul>
+<blockquote>
+<p><strong>NOTE</strong> the boolean data type represents a logical value that can be either true or false. It is used to represent the truth value of an expression or a condition, where true represents a condition that is true or valid, and false represents a condition that is false or invalid.</p>
+</blockquote>
+<h2 id="write-a-functiondefine-a-function">Write a Function/Define a function</h2>
+<p>To write a function in JavaScript, you can use the <code>function</code> keyword followed by the name of the function, and then include the code that you want the function to execute inside curly braces <code>{}</code>.</p>
+<h3 id="example"><strong>Example</strong></h3>
+<p>Here is a basic example:</p>
+<pre class="hljs"><code><div>function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+</div></code></pre>
+<p>In this example, we have defined a function called <code>greet</code> that takes a single argument <code>name</code>. When the function is called with an argument, it will log a message to the console that greets the person by name.</p>
+<blockquote>
+<p>NOTE: Sometimes there is no argument for the function. Here is an example of what it would look like: <code>function greet() {};</code></p>
+</blockquote>
+<h2 id="call-a-functionuse-a-function">Call a function/Use a function</h2>
+<p>To call a function in JavaScript, you can simply write the name of the function followed by parentheses <code>()</code>, and include any arguments that the function requires inside the parentheses. Here is an example of calling the <code>greet</code> function with an argument:</p>
+<h3 id="example"><strong>Example</strong></h3>
+<p><code>greet(&quot;Alice&quot;); // logs &quot;Hello, Alice!&quot;</code></p>
+<p>This will call the <code>greet</code> function with the argument <code>&quot;Alice&quot;</code>, which will log the message <code>&quot;Hello, Alice!&quot;</code> to the console.</p>
+<blockquote>
+<p>NOTE: Here is how you would call a function with no arguments: <code>greet();</code></p>
+</blockquote>
+<h3 id="arrays">Arrays</h3>
+<p>An array is a collection of elements (or values) of the same data type, arranged in a contiguous block of memory and identified by a single name. You can think of an array as a group of boxes or slots that hold values of the same type, where each box is identified by an index or a position number.</p>
+<p>Arrays are used to store and manipulate large amounts of data, such as lists of numbers, names, or other objects.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p><code>let items = [];</code></p>
+<p>The above sets a empty array to a variable named items.</p>
+<h3 id="push">.push()</h3>
+<p><code>.push()</code> is a method that is used to add one or more elements to the end of an array. It modifies the original array and returns the new length of the array after the new elements have been added.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p><code>items.push('brush')</code></p>
+<p><code>items</code> is the name of the array.</p>
+<p><code>'brush'</code> is the value we want to add to the <code>items</code> array. In this case, we want to add a string to the array.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Typically, we will create a variable that we want to push to the array.</p>
+</blockquote>
+<p>An example that defines a variable we want to add to an array.</p>
+<p>Define a variable and set it equal to a value. We are defining a string with a value of <code>'brush'</code> in this example.</p>
+<p><code>let itemToAdd = 'brush';</code></p>
+<p>Then, we can add this item to the items array:</p>
+<p><code>items.push(itemToAdd)</code></p>
+<p>This will add 'brush' to the end of the <code>items</code> array.</p>
+<h3 id="foreach">.forEach()</h3>
+<p><code>forEach()</code> is an array method that is used to iterate over the elements of an array and execute a provided callback function once for each element.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<pre class="hljs"><code><div>let numbers = [1, 2, 3];
+
+numbers.forEach(function(number) {
+  console.log(number);
+});
+
+// Output:
+// 1
+// 2
+// 3
+</div></code></pre>
+<p><code>let numbers = [1, 2, 3];</code></p>
+<p><code>numbers</code> is the array. In this example, it's an array of number 1, 2, 3</p>
+<p><code>function(number){}</code> is the callback. This represents what we want to happen next to each value of the array. The <code>number</code> represents one item in the array. Typically, this value is a singular version of what the array is called. In this example, since we have an array called <code>numbers</code> plural, then we use <code>number</code> to identify each value of the array.</p>
+<p>Think of this as we are going through each value in the array, <code>number</code> is one value in the array. The <code>console.log(number)</code> is displaying each value in the array, one at a time. Essentially, we want to grab one item in the array, do something to that item (in this example, we are using <code>console.log(number)</code> to display the number) and then do the same thing to the next item in the array until we reach the end of the array.</p>
+<h3 id="find">.find()</h3>
+<p>Example from practice demo project:</p>
+<p><code>const todo = todos.find(todo =&gt; todo.id === parseInt(event.target.id));</code></p>
+<p>Here is a breakdown of what each part of the code does:</p>
+<ul>
+<li><code>const todo = ...</code> creates a new constant variable todo and assigns it the value of the first element in the todos array that satisfies the condition defined by the callback function.</li>
+<li><code>todos</code> is an array of objects that represent tasks in a to-do list.</li>
+<li><code>.find()</code> is an array method that searches the array for the first element that satisfies a certain condition, and returns that element. If no element satisfies the condition, undefined is returned.</li>
+<li><code>todo =&gt; todo.id === parseInt(event.target.id)</code> is a callback function that is passed to the <code>find()</code> method as an argument. This function takes one argument, <code>todo</code>, which represents each element of the <code>todos</code> array that is being iterated over. The function compares the <code>id</code> property of each <code>todo</code> object with the <code>id</code> property of the HTML element that triggered the event (e.g. a button click).</li>
+<li><code>parseInt(event.target.id)</code> converts the <code>id</code> property of the HTML element that triggered the event (which is a string) to an integer using the <code>parseInt()</code> function. This is necessary because the <code>id</code> property of the <code>todo</code> object is also an integer.</li>
+<li><code>todo.id === parseInt(event.target.id)</code> compares the <code>id</code> property of the <code>todo</code> object with the parsed <code>id</code> property of the HTML element that triggered the event. If they are equal, the comparison will return <code>true</code>, and the <code>find()</code> method will return the first element in the todos array that satisfies the condition.</li>
+</ul>
+<h3 id="findindex">.findIndex()</h3>
+<p>Example from practice demo project:
+<code>const todoIndex = todos.findIndex(todo =&gt; todo.id === parseInt(event.target.id));</code></p>
+<p>This line of code is using the <code>findIndex()</code> method to search for the index of a specific todo item in an array called <code>todos</code>.</p>
+<p>The <code>findIndex()</code> method returns the index of the first element in the array that satisfies a provided testing function. In this case, the testing function is <code>todo =&gt; todo.id === parseInt(event.target.id)</code>, which takes a single parameter <code>todo</code> and returns a Boolean value indicating whether the <code>id</code> property of <code>todo</code> matches the <code>id</code> property of the element that triggered the event. The <code>parseInt()</code> function is used to convert the <code>id</code> property (which is typically a string) to an integer so that it can be compared to the <code>id</code> of the event target.</p>
+<p>Once the <code>findIndex()</code> method finds the first element that satisfies the testing function, it returns the index of that element in the array. If no element in the array satisfies the testing function, <code>findIndex()</code> returns -1.</p>
+<p>The returned index is then assigned to the constant variable <code>todoIndex</code>, which can be used to update or remove the corresponding todo item from the <code>todos</code> array.</p>
+<h2 id="built-in-javascript-functions">Built in Javascript Functions</h2>
+<h3 id="createelement">createElement()</h3>
+<p><code>document.createElement()</code> is a JavaScript method that creates a new HTML element, which can be later inserted into the DOM tree.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p>Here is an example of how to use <code>document.createElement()</code> to create a new <code>&lt;div&gt;</code> element:</p>
+<p><code>const newDiv = document.createElement(&quot;div&quot;);</code></p>
+<p>In this example, <code>document.createElement(&quot;div&quot;)</code> creates a new <code>&lt;div&gt;</code> element and assigns it to the <code>newDiv</code> constant variable. At this point, the new <code>&lt;div&gt;</code> element exists only in memory and is not yet part of the DOM tree.</p>
+<p>Once you have created a new element using <code>document.createElement()</code>, you can manipulate its attributes, content, and style, and append it to other elements in the DOM tree using methods like <code>appendChild()</code>, <code>setAttribute()</code>, and <code>innerHTML()</code>.</p>
+<p>For example, to set the <code>id</code> attribute of the new <code>&lt;div&gt;</code> element to &quot;my-div&quot; and add some text content to it, you can use the following code:</p>
+<pre class="hljs"><code><div>newDiv.setAttribute(&quot;id&quot;, &quot;my-div&quot;);
+
+newDiv.innerHTML = &quot;Hello, world!&quot;;
+</div></code></pre>
+<p>Once you have finished manipulating the new element, you can add it to the DOM tree by appending it to an existing element using <code>appendChild()</code>, like this:</p>
+<p><code>document.body.appendChild(newDiv);</code></p>
+<p>This will add the new <code>&lt;div&gt;</code> element as a child of the <code>&lt;body&gt;</code> element, and it will now be visible in the rendered HTML page.</p>
+<h3 id="appendchild">appendChild()</h3>
+<p><code>appendChild()</code> is a JavaScript function that is used to add a new child element to an existing parent element in the HTML Document Object Model (DOM). It takes a single argument, which is the child element that you want to add.</p>
+<p>The syntax for using <code>appendChild()</code> is as follows:</p>
+<pre class="hljs"><code><div>parentElement.appendChild(childElement);
+</div></code></pre>
+<p>Here, <code>parentElement</code> is the existing parent element to which you want to add the new child element, and <code>childElement</code> is the new child element that you want to add.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p>Here's an example of using <code>appendChild()</code> to add a new <code>li</code> element to an existing <code>ul</code> element:</p>
+<pre class="hljs"><code><div>let ul = document.getElementById(&quot;myList&quot;);
+
+let li = document.createElement(&quot;li&quot;);
+
+li.textContent = &quot;New item&quot;;
+
+ul.appendChild(li);
+
+</div></code></pre>
+<p>In this example, we first used <code>document.getElementById()</code> to select an existing <code>ul</code> element with the ID &quot;myList&quot;. We then used <code>document.createElement()</code> to create a new <code>li</code> element, and set its <code>textContent</code> property to &quot;New item&quot;. Finally, we used <code>appendChild()</code> to add the new <code>li</code> element as a child of the existing ul element.</p>
+<h3 id="splice">splice()</h3>
+<p><code>splice()</code> is a JavaScript method that allows you to add or remove elements from an array. It modifies the array in place and returns an array of the removed elements (if any).</p>
+<p>The <code>splice()</code> method takes two or more arguments:</p>
+<ul>
+<li>The index at which to start changing the array</li>
+<li>The number of elements to remove (if any)</li>
+<li>Zero or more elements to insert into the array at the specified index</li>
+</ul>
+<h4 id="example"><strong>Example</strong></h4>
+<pre class="hljs"><code><div>let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;kiwi&quot;];
+
+fruits.splice(2, 1);
+
+// The above line will remove one element starting at index 2 (orange)
+
+console.log(fruits); // [&quot;apple&quot;, &quot;banana&quot;, &quot;kiwi&quot;]
+</div></code></pre>
+<p>In this example, we first created an array of fruits. We then used <code>splice()</code> to remove one element from the array starting at index 2, which is the element &quot;orange&quot;. The resulting array contains the remaining elements: [&quot;apple&quot;, &quot;banana&quot;, &quot;kiwi&quot;].</p>
+<h2 id="javascript-properties">Javascript Properties</h2>
+<h3 id="innerhtml">innerHTML</h3>
+<p><code>innerHTML</code> is a JavaScript property that is used to <strong>get</strong> or <strong>set</strong> the HTML content of an element in the Document Object Model (DOM).</p>
+<p>When used to get the content of an element, <code>innerHTML</code> returns a string that represents the content of the element, including any HTML tags that are present.</p>
+<p>When used to set the content of an element, <code>innerHTML</code> replaces any existing content in the element with the new content that is specified. This can include plain text, HTML tags, or a combination of both.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p>Here's an example of using <code>innerHTML</code> to <strong>set</strong> the content of an element:</p>
+<pre class="hljs"><code><div>let div = document.getElementById(&quot;myDiv&quot;);
+
+div.innerHTML = &quot;&lt;p&gt;This is some new content&lt;/p&gt;&quot;;
+</div></code></pre>
+<p>In this example, we first used document.getElementById() to select an existing div element with the ID &quot;myDiv&quot;. We then used the innerHTML property to set the content of the element to a new paragraph element containing the text &quot;This is some new content&quot;.</p>
+<h2 id="conditionals">Conditionals</h2>
+<h3 id="if-else-else-if-conditionals">If, Else, Else If Conditionals</h3>
+<p><code>if</code> is a conditional statement that allows you to execute code based on a specified condition. The syntax for an if statement is as follows:</p>
+<pre class="hljs"><code><div>if (condition) {
+  // code to execute if condition is true
+}
+</div></code></pre>
+<p>In this syntax, condition is any expression that can be evaluated as either true or false. If condition is true, the code inside the curly braces will be executed. If condition is false, the code inside the curly braces will be skipped.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<pre class="hljs"><code><div>let x = 5;
+
+if (x &gt; 0) {
+  console.log(&quot;x is positive&quot;);
+}
+</div></code></pre>
+<p>In this example, we first assigned the value 5 to the variable <code>x</code>. We then used an <code>if</code> statement to check whether <code>x</code> is greater than 0. Since 5 is indeed greater than 0, the code inside the <code>if</code> block will be executed, which logs the message &quot;x is positive&quot; to the console.</p>
+<p><code>if</code> statements are a fundamental feature of JavaScript and are used extensively in programming to make decisions based on specific conditions. They can be combined with other control structures, such as <code>else</code> and <code>else if</code>, to create more complex decision-making logic in your code.</p>
+<h3 id="else-if-conditional">Else If conditional</h3>
+<p>an <code>else if</code> statement is used to add additional conditions to an <code>if</code> statement. It allows you to test multiple conditions and execute different code based on the result of those tests.</p>
+<pre class="hljs"><code><div>if (condition1) {
+  // code to execute if condition1 is true
+} else if (condition2) {
+  // code to execute if condition2 is true
+} else if (condition3) {
+  // code to execute if condition3 is true
+} else {
+  // code to execute if none of the conditions are true
+}
+</div></code></pre>
+<p>In this syntax, you start with an <code>if</code> statement and specify a condition to test. If the condition is true, the code inside the corresponding block will be executed. If the condition is false, the program moves on to the next else if statement.</p>
+<p>If none of the conditions in the <code>if</code> or <code>else if</code> statements are true, the code inside the else block will be executed.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<pre class="hljs"><code><div>let x = 5;
+
+if (x &gt; 0) {
+  console.log(&quot;x is positive&quot;);
+} else if (x &lt; 0) {
+  console.log(&quot;x is negative&quot;);
+} else {
+  console.log(&quot;x is zero&quot;);
+}
+</div></code></pre>
+<p>In this example, the program first checks whether <code>x</code> is greater than 0. Since 5 is indeed greater than 0, the code inside the first block will be executed, and the message &quot;x is positive&quot; will be logged to the console. If <code>x</code> had been negative, the code inside the second block would have been executed, and if <code>x</code> had been 0, the code inside the <code>else</code> block would have been executed.</p>
+<h2 id="event-listener">Event Listener</h2>
+<p><code>addEventListener()</code> - a JavaScript method that allows you to register an event listener on an HTML element. The event listener will respond to events that occur on the element, such as a click or a keypress, by executing a specified function.</p>
+<p>The addEventListener() method takes two arguments:</p>
+<p>The type of event to listen for (e.g. &quot;click&quot;, &quot;keypress&quot;, etc.)
+The function to execute when the event occurs.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<pre class="hljs"><code><div>let button = document.getElementById(&quot;myButton&quot;);
+
+button.addEventListener(&quot;click&quot;, function() {
+  console.log(&quot;Button clicked!&quot;);
+});
+</div></code></pre>
+<p>In this example, we first used <code>document.getElementById()</code> to select an existing button element with the ID &quot;myButton&quot;. We then used <code>addEventListener()</code> to register a click event listener on the button. The listener is an anonymous function that logs the message &quot;Button clicked!&quot; to the console when the button is clicked.</p>
+<h2 id="event-target-checked">Event Target Checked</h2>
+<p><code>event.target.checked</code> is a Boolean property that indicates whether a checkbox or radio button is checked or not, and is accessed through the <code>target</code> property of an event object.</p>
+<p>In HTML, checkboxes and radio buttons are input elements with a <code>type</code> attribute of &quot;checkbox&quot; or &quot;radio&quot;, respectively. When the user interacts with a checkbox or radio button by clicking on it, a <code>&quot;change&quot;</code> event is fired, and the event object contains information about the element that triggered the event.</p>
+<p>By accessing the <code>event.target.checked</code> property, you can determine whether the checkbox or radio button that triggered the event is currently checked or not. The <code>event.target</code> property refers to the HTML element that triggered the event, and <code>checked</code> is a property of input elements of type &quot;checkbox&quot; and &quot;radio&quot;.</p>
+<h4 id="example"><strong>Example</strong></h4>
+<p>Here is an example of how to use <code>event.target.checked</code> to perform an action based on the checked state of a checkbox:</p>
+<pre class="hljs"><code><div>const myCheckbox = document.querySelector(&quot;#my-checkbox&quot;);
+
+myCheckbox.addEventListener(&quot;change&quot;, function(event) {
+  if (event.target.checked) {
+    console.log(&quot;Checkbox is checked!&quot;);
+  } else {
+    console.log(&quot;Checkbox is not checked!&quot;);
+  }
+});
+</div></code></pre>
+<p>In this example, the <code>addEventListener()</code> method is used to listen for a <code>&quot;change&quot;</code> event on a checkbox element with the <code>id</code> &quot;my-checkbox&quot;. When the event is fired, the callback function checks the <code>checked</code> property of <code>event.target</code> to determine whether the checkbox is currently checked or not, and logs a message to the console accordingly.</p>
+
+</body>
+</html>
