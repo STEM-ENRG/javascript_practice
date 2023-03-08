@@ -4,11 +4,14 @@
 - Create a constant variable named input and set it equal to a getElementById() that will retrieve the new-item-input element
 - Create a constant variable named list and set it equal to a getElementById() that will retrieve the todo-list element
 */
-
+const form = document.querySelector('form');
+const input = document.getElementById('new-item-input');
+const list = document.getElementById('todo-list');
 /*
 2. Create 1 variable
 - Create a variable called todos. Set this variable equal to an empty array.
 */
+todos = [];
 
 // This event listener will: Add new to-do item when form is submitted/Item is added to list
 form.addEventListener('submit', (event) => {
@@ -23,6 +26,11 @@ form.addEventListener('submit', (event) => {
      text: input.value,
      completed: false
   */
+  const todo = {
+    id: Date.now(),
+    text: input.value,
+    completed: false
+  };
 
   /** 
   * 4. Add a todo to the todos array
@@ -30,12 +38,15 @@ form.addEventListener('submit', (event) => {
   * - Add a console.log(todos) and refresh in the browser to test that an item displays as an object with the keys defined in Step 3. 
   * Note: The id will be a different value and the text will be whatever you typed in the input
   */
+  todos.push(todo);
+  console.log(todos);
 
   /**
   * 5. Currently, if we type a value in the input element, the value will stay there. 
   * Instead, we want to clear the value.
   * - To do this, set input.value equal to an empty string.
   */
+  input.value = '';
 
   /**
    * 6. Uncomment this code by removing the `//`
@@ -43,8 +54,8 @@ form.addEventListener('submit', (event) => {
    * 
    * These lines will call the methods. Currently they do not exist, you will create them in Step 7 and Step 8 
    */
-  // saveTodos();
-  // renderTodos();
+  saveTodos();
+  renderTodos();
 });
 
 /**
@@ -59,12 +70,30 @@ form.addEventListener('submit', (event) => {
  * When you complete this step, you should have a function named saveTodos() with one line of code inside of it.
  * - Add a console.log on the next line to confirm this checkpoint: console.log(todos)
  */
+function saveTodos() {
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
 
 /**
  * 8. Create an empty function
  * - Create a function named renderTodos, leave it blank/empty for now. 
  * In this step, we are defining the function that we will add more to in step 9.
  */
+function renderTodos() {
+  list.innerHTML = '';
+
+  todos.forEach(function(todo) {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <input type="checkbox" id="${todo.id}" ${todo.completed ? 'checked' : ''}>
+        <label for="${todo.id}" class="${todo.completed ? 'completed' : ''}">${todo.text}</label>
+        <button id="${todo.id}" class="delete">Delete</button>
+      `;
+      list.appendChild(li);
+  })
+}
+
+
 
 /**
  * 9. Set innerHTML of list created in Step 1 to an empty string
@@ -126,7 +155,20 @@ form.addEventListener('submit', (event) => {
  * 15. Add a click list event listener 
  * - Using addEventListener(), add an event listener for when an item from the list is clicked 
  */
+list.addEventListener("click", function(event) {
+  if(event.target.tagName === 'INPUT') {
+    const todo = todos.find(todo => todo.id === parseInt(event.target.id));
+    todo.completed = event.target.checked;
 
+    saveTodos();
+    renderTodos();
+  } else if (event.target.tagName === 'BUTTON') {
+    const todoIndex = todos.findIndex(todo => todo.id === parseInt(event.target.id));
+    todos.splice(todoIndex, 1);
+    saveTodos();
+    renderTodos();
+  }
+})
 
 // Next, We will create a if else if conditional to check if the input next to the todo was clicked or if the delete button for the todo was clicked
 /**
@@ -211,7 +253,7 @@ form.addEventListener('submit', (event) => {
  * NOTE: You may have to add some todos and then refresh to see this working.
  */
 // Load saved todos from local storage
-// if (localStorage.getItem('todos')) {
-//   todos = JSON.parse(localStorage.getItem('todos'));
-//   renderTodos();
-// }
+if (localStorage.getItem('todos')) {
+  todos = JSON.parse(localStorage.getItem('todos'));
+  renderTodos();
+}
