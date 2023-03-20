@@ -5,7 +5,7 @@ We are creating a ToDo App that allows a user to add a new item to a list, mark 
 You can either unzip the files or clone the repository on github
 
 ## Unzip files
-Navigate to where you want to add these files on your computer. Then click on the files to unzip them.
+Navigate to where you want to add these files on your computer. Drag and drop the unzipped file. Then double click on the zipped file to unzip.
 
 ## Clone the Repository
 Open VSCode, Then go to Terminal --> New Terminal 
@@ -19,12 +19,9 @@ Once the terminal is open, use the link below to clone the repository
 If you've unzipped the files, then follow the instructions from the Unzip section. If you cloned then follow the clone instructions.
 
 ## Unzip
-Open VSCode and Click Open and choose the folder where you placed the unzipped files in
+Open VSCode and Click Open and choose the folder where you placed the unzipped files.
 
 ## Clone
-@todo:
-I think you may have to open again in VSCode? Test this out
-
 Change to the directory where the files are: `cd javascript_practice`
 
 Make sure you have 7 files in your directory: `ls`
@@ -32,7 +29,11 @@ There should be 7 files listed after running this command
 
 # Start
 
-Open the index.html file in the browser: In the terminal, type this command: 
+Open the index.html file in the browser.
+
+In VSCode: Go to Terminal --> New Terminal 
+
+In the terminal, type this command: 
 
 Mac: `open index.html` 
 
